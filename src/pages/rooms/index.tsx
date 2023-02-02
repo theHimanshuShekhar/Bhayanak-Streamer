@@ -31,6 +31,11 @@ const Header: React.FC = () => {
       ? sessionData.user.image
       : "/shakti.webp";
 
+  const sessionUserText: string =
+    sessionData && sessionData.user && sessionData.user.name
+      ? sessionData.user.name
+      : "Login";
+
   return (
     <div className="flex justify-between">
       <Link
@@ -70,11 +75,12 @@ const Header: React.FC = () => {
               33vw"
           />
         </div>
-        {sessionData && (
-          <span className="text-lg font-semibold text-white">
-            {sessionData.user?.name}
-          </span>
-        )}
+
+        <span className="text-lg font-semibold text-white">
+          {sessionData && sessionData.user && sessionData.user.name
+            ? sessionData.user.name
+            : "Login"}
+        </span>
       </Link>
     </div>
   );
